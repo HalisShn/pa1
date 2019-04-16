@@ -32,16 +32,18 @@ query_vectors = getFeatureVectors(query_images, filters)
 
 printAccuracy(train_vectors, train_target, query_vectors, query_target, train_images, "gabor", dist_func = "minkowski")
     
-
+'''
 #==================================================================#
 
 #==================================================================#
 print ("Average SIFT")
-'''
 
-
+print ("SIFT features uploading...")
 train_vectors = gen_sift_features(train_images)
+print ("SIFT features of train images uploaded.")
+
 #query_vectors = gen_sift_features(query_images, sift)
+print ("SIFT features of query images uploaded.")
 
 #printAccuracy(train_vectors, train_target, query_vectors, query_target, train_images, "sift", dist_func = "minkowski")
 
