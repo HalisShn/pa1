@@ -26,9 +26,9 @@ def getSubImages(image, k):
             sub_images.append(img)
     return sub_images
 
-def createCodebook(train_images, sift):
+def createCodebook(train_images):
     
-    train_desc = gen_sift_features(train_images, sift, get_desc = True)
+    train_desc = gen_sift_features(train_images, get_desc = True)
     #codebook = train_desc[:500]
     if len(train_desc) > 500:
         #codebook, distortion = kmeans(train_desc, k_or_guess = 500, iter=1, thresh=1e-05)
