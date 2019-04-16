@@ -20,27 +20,7 @@ print ("Train images uploaded.")
 query_images, query_target = getTargetandImagesFromPath("query")
 print ("Query images uploaded." )
 
-def getSubpartsOfEdge(edge, k):
-    edge_n = int(edge / k)
-    return [(edge_n*i, edge_n*(i+1)) if edge_n*(i+1) < edge else (edge_n*i, edge) for i in range(k)]
 
-def getSubImages(image, k):
-    
-    width, height = int(image.shape[1]), int(image.shape[0])
-
-    width_parts, height_parts = getSubpartsOfEdge(width, k), getSubpartsOfEdge(height, k)
-
-    sub_images = []
-    for widths in width_parts:
-        for heights in height_parts:
-            img = image[heights[0]:heights[1],widths[0]:widths[1]]
-            sub_images.append(img)
-    return sub_images
-
-img = train_images[13]
-list1 = getSubImages(img, 4)
-for i in range(len(list1)):
-    cv2.imwrite(str(i)+".jpg", list1[i])
 '''
 #=======================Gabor Filter Bank==========================#
 
