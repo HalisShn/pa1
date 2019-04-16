@@ -40,15 +40,13 @@ print ("Average SIFT")
 '''
 
 sift = cv2.xfeatures2d.SIFT_create()
-'''
 
 train_vectors = gen_sift_features(train_images, sift)
-query_vectors = gen_sift_features(query_images, sift)
+#query_vectors = gen_sift_features(query_images, sift)
 
-printAccuracy(train_vectors, train_target, query_vectors, query_target, train_images, "sift", dist_func = "minkowski")
+#printAccuracy(train_vectors, train_target, query_vectors, query_target, train_images, "sift", dist_func = "minkowski")
 
 #==================================================================#
-'''
 
 
 # PART 2
