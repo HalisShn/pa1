@@ -64,8 +64,10 @@ def gen_sift_features(images, get_desc = False):
     for img in images:
         gray_img = to_gray(img)
         kp, desc = sift.detectAndCompute(gray_img, None)
+        print (np.shape(desc))
         descriptors.append(desc)
         mean_desc = desc.mean(axis=0)
+        print (np.shape(mean_desc))
         vector_list.append(mean_desc)
     if get_desc:
         descr = np.reshape(descriptors, (len(descriptors)//128, 128))
