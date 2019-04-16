@@ -61,10 +61,10 @@ def gen_sift_features(images, get_desc = False):
     print (np.shape(images))
     vector_list = []
     descriptors = []
-
+    print (np.shape(images[0]))
     for img in images:
         #gray_img = to_gray(img)
-        print ("image:",np.shape(img))
+        print ("image:", np.shape(img))
         kp, desc = sift.detectAndCompute(img, None)
         print (np.shape(desc))
         descriptors.append(desc)
