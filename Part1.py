@@ -58,7 +58,7 @@ def to_gray(color_img):
 def gen_sift_features(images, get_desc = False):
 
     sift = cv2.xfeatures2d.SIFT_create()
-
+    print (np.shape(images))
     vector_list = []
     descriptors = []
 
