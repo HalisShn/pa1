@@ -56,7 +56,6 @@ def to_gray(color_img):
     return gray
 
 def gen_sift_features(images, get_desc = False):
-    images = images.astype('uint8')
 
     sift = cv2.xfeatures2d.SIFT_create()
 
@@ -64,8 +63,9 @@ def gen_sift_features(images, get_desc = False):
     descriptors = []
 
     for img in images:
-        gray_img = to_gray(img)
-        kp, desc = sift.detectAndCompute(gray_img, None)
+        #gray_img = to_gray(img)
+        print ("image:",np.shape(img))
+        kp, desc = sift.detectAndCompute(img, None)
         print (np.shape(desc))
         descriptors.append(desc)
         mean_desc = desc.mean(axis=0)

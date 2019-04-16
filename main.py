@@ -20,7 +20,7 @@ print ("Train images uploaded.")
 query_images, query_target = getTargetandImagesFromPath("query")
 print ("Query images uploaded." )
 
-print (len(train_images))
+print (np.shape(train_images))
 
 '''
 #=======================Gabor Filter Bank==========================#
