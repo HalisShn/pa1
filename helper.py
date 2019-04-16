@@ -22,7 +22,7 @@ Get Images' paths from given directories.
 '''
 def getImagesPaths(path):
     pathList = []
-    for root, dirs, files in os.walk("content/drive/My\ Drive/uygulama/dataset/"+path):
+    for root, dirs, files in os.walk("/content/drive/My\ Drive/uygulama/dataset/"+path):
         for file in files:
             path =  root +"\\" + file
             pathList.append(path)
