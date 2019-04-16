@@ -55,20 +55,18 @@ def to_gray(color_img):
     gray = cv2.cvtColor(color_img, cv2.COLOR_BGR2GRAY)
     return gray
 
-def gen_sift_features(images, sift, get_desc = False):
+def gen_sift_features(images, get_desc = False):
+    sift = cv2.xfeatures2d.SIFT_create()
+
     vector_list = []
-    descriptors = np.array([])
+    descriptors = []
 
     for img in images:
         gray_img = to_gray(img)
         kp, desc = sift.detectAndCompute(gray_img, None)
-        descriptors = np.append(descriptors, desc)
+        descriptors.append(desc)
         mean_desc = desc.mean(axis=0)
         vector_list.append(mean_desc)
-    # kp is the keypoints
-    #
-    # desc is the SIFT descriptors, they're 128-dimensional vectors
-    # that we can use for our final features
     if get_desc:
         descr = np.reshape(descriptors, (len(descriptors)//128, 128))
         descr = np.float32(descr)
